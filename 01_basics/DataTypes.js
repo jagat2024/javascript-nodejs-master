@@ -236,6 +236,82 @@ student.city = "Kolkata";
 
 console.log(student);
 
+// ============================================================================
+// . SHALLOW COPY
+// ============================================================================
+//
+// Spread operator creates a shallow copy.
+//
+
+const originalArray = [1, 2, 3];
+
+const shallowCopy = [...originalArray];
+
+shallowCopy.push(4);
+
+console.log("\n📌 Shallow Copy");
+
+console.log(originalArray);
+console.log(shallowCopy);
+
+
+
+// ============================================================================
+// . SHALLOW COPY WITH NESTED OBJECTS
+// ============================================================================
+
+const user1 = [
+    {
+        name: "Jagat",
+        city: "Mumbai"
+    }
+];
+
+const user2 = [...user1];
+
+user2[0].city = "Delhi";
+
+console.log("\n📌 Shallow Copy Problem");
+
+console.log(user1);
+console.log(user2);
+
+//
+// Output:
+// Both arrays show Delhi because the nested object is shared.
+//
+
+
+
+// ============================================================================
+// . DEEP COPY
+// ============================================================================
+//
+// structuredClone() creates a complete copy.
+//
+
+const employee1 = [
+    {
+        name: "Jagat",
+        city: "Mumbai"
+    }
+];
+
+const employee2 = structuredClone(employee1);
+
+employee2[0].city = "Delhi";
+
+console.log("\n📌 Deep Copy");
+
+console.log(employee1);
+console.log(employee2);
+
+
+//
+// Output:
+// employee1 -> Mumbai
+// employee2 -> Delhi
+//
 
 
 // ======================================================
